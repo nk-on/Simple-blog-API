@@ -1,4 +1,4 @@
-const authors = [
+const posts = [
   {
     id: 1,
     name: "Alice Johnson",
@@ -60,4 +60,4 @@ const authors = [
     bio: "Writes about finance, investments, and personal growth.",
   },
 ];
-module.exports = {authors}
+module.exports = {posts}
