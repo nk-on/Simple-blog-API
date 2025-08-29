@@ -2,4 +2,10 @@ const db = require('../db/db.js');
 function getAllPosts(req,res){
     return res.json(db.posts);
 };
-module.exports = {getAllPosts}
+function getPostById(req,res){
+    const id = Number(req.params.id);
+    const posts = db.posts;
+    const post = posts.find(element => element.id === id);
+    return res.json(post);
+}
+module.exports = {getAllPosts,getPostById}
