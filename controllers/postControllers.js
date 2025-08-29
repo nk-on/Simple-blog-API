@@ -1,6 +1,6 @@
 const db = require('../db/db.js');
 function getAllPosts(req,res){
-    return res.json(db.posts);
+    return res.json(db.authorProfiles);
 };
 function getPostById(req,res){
     const id = Number(req.params.id);
