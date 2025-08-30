@@ -2,9 +2,22 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 const express = require("express");
 const app = express();
-app.get('/',(req,res)=>{
-    res.send('Hello world');
+const path = require("path");
+const {
+  getAuthorById,
+  addAuthor,
+  getAllAuthors,
+} = require("./controllers/postControllers");
+app.use(express.urlencoded({ extended: true }));
+app.get("/", (req, res) => {
+  return res.send("<h1>Welcome to Simple blog API</h1>");
 });
-app.listen(PORT,()=>{
-    console.log('i work')
-})
+app.get("/authors", getAllAuthors);
+app.get("/authors/:id", getAuthorById);
+app.get("/createAuthor", (req, res) => {
+  return res.sendFile(path.join(__dirname, "Form.html"));
+});
+app.post("/createAuthor", addAuthor);
+app.listen(PORT, () => {
+  console.log("i work");
+});
