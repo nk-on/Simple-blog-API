@@ -3,17 +3,21 @@ const PORT = process.env.PORT;
 const express = require("express");
 const app = express();
 const path = require("path");
-const { getAllPosts, getPostById , addPost} = require("./controllers/postControllers");
-app.use(express.urlencoded({extended:true}));
+const {
+  getAuthorById,
+  addAuthor,
+  getAllAuthors,
+} = require("./controllers/postControllers");
+app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   return res.send("<h1>Welcome to Simple blog API</h1>");
 });
-app.get("/posts", getAllPosts);
-app.get("/posts/:id", getPostById);
+app.get("/authors", getAllAuthors);
+app.get("/authors/:id", getAuthorById);
 app.get("/createAuthor", (req, res) => {
   return res.sendFile(path.join(__dirname, "Form.html"));
 });
-app.post('/createAuthor',addPost)
+app.post("/createAuthor", addAuthor);
 app.listen(PORT, () => {
   console.log("i work");
 });
