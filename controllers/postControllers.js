@@ -14,6 +14,8 @@ function getAuthorById(req,res){
 function addAuthor(req,res){
     const post = req.body;
     const posts = db.authorProfiles;
+    const lastPost = posts[posts.length -1].id;
+    post.id = lastPost+1;
     posts.push(post)
     return res.send('data received')
 }
