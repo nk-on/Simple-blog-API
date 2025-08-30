@@ -17,6 +17,6 @@ function addAuthor(req,res){
     const lastPost = posts[posts.length -1].id;
     post.id = lastPost+1;
     posts.push(post)
-    return res.send('data received')
+    return res.redirect('/authors')
 }
 module.exports = {getAllAuthors,getAuthorById,addAuthor}
