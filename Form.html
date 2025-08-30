@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Create Post</h1>
-    <form>
+    <form method="POST" action="/createAuthor">
       <h2>Author Information</h2>
       <div class="form-group">
         <label for="author-name">Author Name:</label>
@@ -21,7 +21,7 @@
         <label for="bio">Bio:</label>
         <textarea id="bio" name="bio" rows="5"></textarea>
       </div>
-      <button type="button" onclick="alert('Form submitted!')">Submit</button>
+      <button type="submit"  onclick="alert('Form submitted!')">Submit</button>
     </form>
   </body>
 </html>

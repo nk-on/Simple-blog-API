@@ -4,11 +4,17 @@ function getAllPosts(req,res){
 };
 function getPostById(req,res){
     const id = Number(req.params.id);
-    const posts = db.posts;
+    const posts = db.authorProfiles;
     const post = posts.find(element => element.id === id);
     if(!post){
         res.json({message:'Error'})
     }
     return res.json(post);
+};
+function addPost(req,res){
+    const post = req.body;
+    const posts = db.authorProfiles;
+    posts.push(post)
+    return res.send('data received')
 }
-module.exports = {getAllPosts,getPostById}
+module.exports = {getAllPosts,getPostById,addPost}
