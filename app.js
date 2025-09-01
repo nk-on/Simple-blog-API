@@ -18,6 +18,10 @@ app.get("/createAuthor", (req, res) => {
   return res.sendFile(path.join(__dirname, "Form.html"));
 });
 app.post("/createAuthor", addAuthor);
+app.use((err, req, res, next) => {
+  console.log("i am here");
+  return res.status(err.statusCode || 500).json({ message: err.message });
+});
 app.listen(PORT, () => {
   console.log("i work");
 });
